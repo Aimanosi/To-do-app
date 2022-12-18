@@ -26,7 +26,6 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: 30%; */
 }
 
 form input,
@@ -36,9 +35,7 @@ form button {
   border: none;
   background: white;
 }
-.todo-input {
-  width: 30%;
-}
+
 form button {
   color: #d88771;
   background: white;
@@ -147,6 +144,17 @@ select {
   color: #ff6f47;
 }
 
-.ztodo-item {
-  display: none;
+@media (max-width: 768px) {
+  select {
+    color: #ff6f47;
+    width: 100%;
+    cursor: pointer;
+    padding: 1rem;
+  }
+
+  .formMobile {
+    margin: 0 1rem;
+    display: block;
+    margin-bottom: 2rem;
+  }
 }
