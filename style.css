@@ -26,6 +26,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* width: 30%; */
 }
 
 form input,
@@ -35,7 +36,9 @@ form button {
   border: none;
   background: white;
 }
-
+.todo-input {
+  width: 30%;
+}
 form button {
   color: #d88771;
   background: white;
