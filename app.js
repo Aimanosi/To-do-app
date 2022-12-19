@@ -3,17 +3,18 @@ const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
 const warning = document.querySelector(".warning");
+const clearAlll = document.querySelector(".clear-all");
 
 // Event listeners
 document.addEventListener("DOMContentLoaded", getTodo);
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
 filterOption.addEventListener("click", filterTodo);
+clearAlll.addEventListener("click", clearAll);
 
 // Function
 function addTodo(event) {
   event.preventDefault();
-
   if (todoInput.value === "") {
     warning.style.visibility = "visible";
   } else {
@@ -50,6 +51,7 @@ function addTodo(event) {
     //   clear todo input value
     todoInput.value = "";
   }
+  refresh();
 }
 
 function deleteCheck(e) {
@@ -64,6 +66,7 @@ function deleteCheck(e) {
     todo.addEventListener("transitionend", function () {
       todo.remove();
     });
+    refresh();
   }
 
   //   check mark
@@ -160,3 +163,26 @@ function removeLocalTodos(todo) {
   todos.splice(todos.indexOf(todoIndex), 1);
   localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+function clearAll() {
+  localStorage.clear();
+  todoList.innerHTML = [];
+  clearAlll.style.display = "none";
+}
+
+function refresh() {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+
+  todos.length >= 1
+    ? (clearAlll.style.display = "block")
+    : (clearAlll.style.display = "none");
+
+  console.log(todos.length);
+}
+
+refresh();
