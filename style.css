@@ -145,16 +145,14 @@ select {
 }
 
 @media (max-width: 768px) {
-  select {
-    color: #ff6f47;
-    width: 100%;
-    cursor: pointer;
-    padding: 1rem;
+  form input {
+    width: 40%;
   }
 
-  .formMobile {
-    margin: 0 1rem;
-    display: block;
-    margin-bottom: 2rem;
+  select {
+    color: #ff6f47;
+    width: 8rem;
+    cursor: pointer;
+    padding: 1rem;
   }
 }
